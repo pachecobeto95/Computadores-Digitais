@@ -1,0 +1,19 @@
+Entity AMUX is port(d0, d1 : in bit_vector(3 downto 0);
+                    sel : in bit;
+                    q : out bit_vector(3 downto 0)
+            );
+End AMUX;
+
+
+Architecture Hybrid of AMUX is 
+
+Component MUX2
+  
+  port (x0, x1 : in bit;
+                      sel : in bit;
+                      s : out bit
+                );
+  
+End Component;
+
+MUX_0 : MUX2 port map(d0(0), d1(0), );

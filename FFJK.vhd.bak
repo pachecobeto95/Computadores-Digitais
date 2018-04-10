@@ -1,0 +1,14 @@
+Entity FFJK is port (j, k, clk : in bit;
+                        q, nq : out bit
+                );
+end FFJK;
+
+Architecture FLUXO of FFJK is 
+
+signal qt, ntq : bit;
+
+begin
+  
+  
+  
+end FLUXO;

@@ -1,0 +1,14 @@
+Entity CKT_1 is port (in0, in1, sin : in bit;
+                        q, sout : out bit
+                );
+
+End CKT_1;
+
+Architecture FLUXO of CKT_1 is 
+
+  Begin
+    
+    q <= (in0 and (not sin)) or (in1 and sin);
+    sout <= sin; 
+    
+End FLUXO;

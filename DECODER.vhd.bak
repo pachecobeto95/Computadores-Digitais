@@ -1,0 +1,17 @@
+Entity DECODER is port(i : in bit;
+                        s0, s1 : in bit;
+                        q : out bit_vector(3 downto 0)
+                  );
+End DECODER;
+
+Architecture FLUXO of DECODER is
+  
+Begin
+  
+  q(0) <= ((not s0) and (not s1)) and (i);
+  q(1) <= (s0 and (not s1)) and (i);
+  q(2) <= ((not s0) and (s1)) and (i);
+  q(3) <= ((s0) and (s1)) and (i);
+  
+  
+End FLUXO;

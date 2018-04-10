@@ -1,0 +1,22 @@
+Entity DESLOCADOR is port (a : in bit_vector(3 downto 0);
+                            s : in bit_vector(1 downto 0);
+      	                     r : out bit_vector(3 downto 0)
+	                   );
+End DESLOCADOR;
+
+Architecture Hybrid of DESLOCADOR is 
+  Component MUX4
+    port (w0, w1, w2, w3 : in bit;
+                      sel0, sel1 : in bit;
+                      q : out bit
+                );
+  End Component;
+  
+Begin
+  
+  MUX4_0 : MUX4 port map (a(0), ); 
+
+
+
+
+End Hybrid; 

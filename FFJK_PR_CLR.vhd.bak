@@ -1,0 +1,30 @@
+Entity FFJK_PR_CLR is port(j, k, clk, pr, clr : in bit;
+                            q : out bit
+                    );
+End FFJK_PR_CLR;
+
+
+
+Architecture Hybrid of FFJK_PR_CLR is 
+
+Component FFJK
+  port (j, k, clk : in bit;
+                        q, nq : out bit
+                );
+End Component;
+
+signal qt, not_clk : bit;
+
+Begin
+  not_clk <= not(clk);
+  FFJK0 : FFJK port map(j, k, not_clk, qt);
+  
+  q <= '1' when (clr = '1') and (pr = '0') else
+        '0' when (clr = '0') and (pr = '1') else
+        qt;  
+  
+  
+  
+  
+  
+End Hybrid;

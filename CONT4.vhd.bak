@@ -1,0 +1,24 @@
+Entity Cont4 is port (clk : in bit;
+                        q : out BIT_VECTOR (3 DOWNTO 0)
+                );
+End Cont4;
+
+Architecture Hybrid of Cont4 is 
+    Component FFJK
+      port (j, k, clk : in bit;
+                        q, nq : out bit
+                );
+End Component;
+signal qt : BIT_VECTOR (3 DOWNTO 0);
+signal t1, t2 : bit;
+
+Begin
+  t1 <= qt(0) and qt(1);
+  t2 <= t1 and qt(2);
+  FFJK0 : FFJK port map ('1', '1', clk, qt(0));
+  FFJK1 : FFJK port map (qt(0), qt(0), clk, qt(1));
+  FFJK2 : FFJK port map (t1, t1, clk, qt(2));
+  FFJK3 : FFJK port map (t2, t2, clk, qt(3));
+  q <= qt;  
+  
+End Hybrid
